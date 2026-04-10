@@ -11,41 +11,18 @@ appId: "1:258331631270:web:f4eeeb8ac1e3177bb21e67"
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
-document.getElementById("contactForm").addEventListener("submit", function(e){
+document.getElementById("leadForm").addEventListener("submit", e=>{
 e.preventDefault();
 
-db.ref("clients").push({
+db.ref("leads").push({
 name: name.value,
 email: email.value,
 message: message.value,
+status: "new",
 time: new Date().toLocaleString()
 });
 
-alert("Sent!");
+alert("Request sent 🚀");
 
-window.location.href="https://wa.me/2349168144059";
-
-this.reset();
-});
-
-// CHATBOT
-const input = document.getElementById("chatInput");
-const body = document.getElementById("chatBody");
-
-input.addEventListener("keypress", function(e){
-if(e.key==="Enter"){
-let text=input.value;
-body.innerHTML+=`<p>You: ${text}</p>`;
-
-let reply="Chat on WhatsApp.";
-
-if(text.includes("price")) reply="$15 - $80+";
-if(text.includes("time")) reply="2-5 days";
-
-setTimeout(()=>{
-body.innerHTML+=`<p>Bot: ${reply}</p>`;
-},500);
-
-input.value="";
-}
+window.location.href = "https://wa.me/2349168144059";
 });
