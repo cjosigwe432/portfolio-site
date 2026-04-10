@@ -1,50 +1,32 @@
-// AOS init
-AOS.init();
+// FIREBASE CONFIG (ADD YOUR OWN)
 
-// Smooth scroll
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href"))
-        .scrollIntoView({ behavior: "smooth" });
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDLvK-Q4v1hZ2B-mtxZzNXs5m1tCS6LdGw",
+  authDomain: "neobank-app-3ebbe.firebaseapp.com",
+  projectId: "neobank-app-3ebbe",
+  storageBucket: "neobank-app-3ebbe.firebasestorage.app",
+  messagingSenderId: "258331631270",
+  appId: "1:258331631270:web:f4eeeb8ac1e3177bb21e67",
+  measurementId: "G-9VRK9ZZXYS"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+// SEND MESSAGE TO DATABASE
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    db.ref("clients").push({
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
     });
+
+    alert("Message sent 🚀 I will contact you soon");
+
+    this.reset();
 });
-
-// Typing Effect
-const text = ["Web Developer", "Frontend Developer", "Freelancer"];
-let i = 0, j = 0;
-let currentText = "";
-let isDeleting = false;
-
-function type() {
-    currentText = text[i];
-    
-    if (isDeleting) {
-        document.getElementById("typing").textContent =
-        currentText.substring(0, j--);
-    } else {
-        document.getElementById("typing").textContent =
-        currentText.substring(0, j++);
-    }
-
-    if (!isDeleting && j === currentText.length) {
-        isDeleting = true;
-        setTimeout(type, 1000);
-        return;
-    }
-
-    if (isDeleting && j === 0) {
-        isDeleting = false;
-        i = (i + 1) % text.length;
-    }
-
-    setTimeout(type, isDeleting ? 50 : 100);
-}
-
-type();
-
-// Scroll button
-function scrollToProjects() {
-    document.getElementById("projects")
-    .scrollIntoView({ behavior: "smooth" });
-}
