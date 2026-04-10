@@ -1,20 +1,28 @@
 body {
 margin:0;
-font-family:Arial;
-background:#0b1220;
+font-family: 'Segoe UI', sans-serif;
+background:#0f172a;
 color:white;
-text-align:center;
 }
 
 .nav {
 display:flex;
 justify-content:space-between;
-padding:15px;
-background:#111827;
+padding:20px;
+background:#020617;
 }
 
 .hero {
-padding:80px 20px;
+text-align:center;
+padding:100px 20px;
+}
+
+.hero h1 {
+font-size:2.5rem;
+}
+
+.hero-buttons {
+margin-top:20px;
 }
 
 .btn {
@@ -24,47 +32,61 @@ border-radius:8px;
 text-decoration:none;
 color:black;
 margin:5px;
+transition:0.3s;
+}
+
+.btn:hover {
+transform:scale(1.05);
 }
 
 .whatsapp {
-background:#25D366;
+background:#22c55e;
+color:white;
 }
 
 .section {
 padding:60px 20px;
+text-align:center;
 }
 
 .grid {
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
+padding:20px;
 }
 
 .card {
-background:#111827;
-padding:20px;
-border-radius:10px;
-width:250px;
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.hover:hover {
+transform:translateY(-10px);
 }
 
 .form {
 display:flex;
 flex-direction:column;
-width:300px;
-margin:auto;
 gap:10px;
+max-width:400px;
+margin:auto;
 }
 
 input, textarea {
-padding:10px;
-border-radius:5px;
+padding:12px;
+border-radius:6px;
 border:none;
 }
 
 button {
-padding:10px;
+padding:12px;
 background:#38bdf8;
+border:none;
+border-radius:6px;
 }
 
 /* CHAT */
@@ -73,7 +95,7 @@ position:fixed;
 bottom:20px;
 right:20px;
 width:260px;
-background:#111827;
+background:#1e293b;
 border-radius:10px;
 }
 
@@ -84,16 +106,26 @@ padding:10px;
 
 .chat-body {
 height:150px;
-overflow-y:auto;
+overflow:auto;
 padding:10px;
 }
 
 /* FLOAT */
-.floating-whatsapp {
+.floating {
 position:fixed;
 bottom:20px;
 left:20px;
-background:#25D366;
+background:#22c55e;
 padding:15px;
 border-radius:50%;
+}
+
+/* ANIMATION */
+.fade-in {
+animation:fade 1s ease-in;
+}
+
+@keyframes fade {
+from {opacity:0; transform:translateY(20px);}
+to {opacity:1; transform:translateY(0);}
 }
