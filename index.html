@@ -1,67 +1,71 @@
-const firebaseConfig = {
-apiKey: "AIzaSyDLvK-Q4v1hZ2B-mtxZzNXs5m1tCS6LdGw",
-authDomain: "neobank-app-3ebbe.firebaseapp.com",
-databaseURL: "https://neobank-app-3ebbe-default-rtdb.firebaseio.com",
-projectId: "neobank-app-3ebbe",
-storageBucket: "neobank-app-3ebbe.firebasestorage.app",
-messagingSenderId: "258331631270",
-appId: "1:258331631270:web:f4eeeb8ac1e3177bb21e67"
-};
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empire Tech</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+<body>
 
-// CONTACT FORM
-document.getElementById("contactForm").addEventListener("submit", function(e){
-e.preventDefault();
+<nav class="nav">
+<h2>Empire Tech</h2>
+<a href="#contact" class="btn">Get Started</a>
+</nav>
 
-db.ref("clients").push({
-name: name.value,
-email: email.value,
-message: message.value,
-time: new Date().toLocaleString()
-});
+<header class="hero fade-in">
+<h1>We Build Websites That Grow Your Business 🚀</h1>
+<p>Modern. Fast. Professional.</p>
 
-alert("Request sent 🚀");
+<div class="hero-buttons">
+<a href="#contact" class="btn">Start Project</a>
+<a href="https://wa.me/2349168144059" class="btn whatsapp">WhatsApp</a>
+</div>
+</header>
 
-// AUTO WHATSAPP REDIRECT
-window.location.href = "https://wa.me/2349168144059?text=Hello%20I%20just%20submitted%20a%20form";
+<section class="section fade-in">
+<h2>Services</h2>
 
-this.reset();
-});
+<div class="grid">
+<div class="card hover">Starter Website<br>$15</div>
+<div class="card hover">Business Website<br>$40</div>
+<div class="card hover">Full System<br>$80+</div>
+</div>
+</section>
 
-// EMAIL SUBSCRIBERS
-document.getElementById("emailForm").addEventListener("submit", function(e){
-e.preventDefault();
+<section class="section fade-in">
+<h2>Portfolio</h2>
 
-db.ref("subscribers").push({
-email: subscriberEmail.value,
-time: new Date().toLocaleString()
-});
+<div class="grid">
+<div class="card hover">Laundry Website</div>
+<div class="card hover">POS Dashboard</div>
+<div class="card hover">Portfolio Site</div>
+</div>
+</section>
 
-alert("Subscribed 🎉");
-this.reset();
-});
+<section id="contact" class="section fade-in">
+<h2>Start Your Project</h2>
 
-// CHATBOT
-const input = document.getElementById("chatInput");
-const body = document.getElementById("chatBody");
+<form id="contactForm" class="form">
+<input type="text" id="name" placeholder="Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<textarea id="message" placeholder="Project details..." required></textarea>
+<button type="submit">Send Request</button>
+</form>
+</section>
 
-input.addEventListener("keypress", function(e){
-if(e.key === "Enter"){
-let text = input.value.toLowerCase();
-body.innerHTML += `<p><b>You:</b> ${text}</p>`;
+<div class="chatbot">
+<div class="chat-header">Assistant</div>
+<div class="chat-body" id="chatBody"></div>
+<input type="text" id="chatInput">
+</div>
 
-let reply="Chat us on WhatsApp.";
+<a href="https://wa.me/2349168144059" class="floating">💬</a>
 
-if(text.includes("price")) reply="Starts from $15.";
-if(text.includes("time")) reply="2-5 days delivery.";
-if(text.includes("website")) reply="We build business & portfolio websites.";
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
+<script src="script.js"></script>
 
-setTimeout(()=>{
-body.innerHTML += `<p><b>Bot:</b> ${reply}</p>`;
-},500);
-
-input.value="";
-}
-});
+</body>
+</html>
