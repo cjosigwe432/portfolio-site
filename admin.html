@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard</title>
+<title>Admin CRM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1 style="text-align:center;">Client Dashboard</h1>
+<h1 style="text-align:center;">CRM Dashboard</h1>
 
-<div class="grid" id="messages"></div>
+<table border="1" width="100%">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Message</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody id="data"></tbody>
+</table>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
 
 <script>
-const firebaseConfig = {
+firebase.initializeApp({
 apiKey: "AIzaSyDLvK-Q4v1hZ2B-mtxZzNXs5m1tCS6LdGw",
 databaseURL: "https://neobank-app-3ebbe-default-rtdb.firebaseio.com"
-};
+});
 
-firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
 
-firebase.database().ref("clients").on("value", snap=>{
-let box=document.getElementById("messages");
-box.innerHTML="";
+db.ref("leads").on("value", snap=>{
+let table = document.getElementById("data");
+table.innerHTML = "";
 
-snap.forEach(data=>{
-let d=data.val();
-box.innerHTML+=`
-<div class="card">
-<h3>${d.name}</h3>
-<p>${d.email}</p>
-<p>${d.message}</p>
-<small>${d.time}</small>
-</div>`;
+snap.forEach(d=>{
+let v = d.val();
+
+table.innerHTML += `
+<tr>
+<td>${v.name}</td>
+<td>${v.email}</td>
+<td>${v.message}</td>
+<td>${v.status}</td>
+</tr>`;
 });
 });
 </script>
