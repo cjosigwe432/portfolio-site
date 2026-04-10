@@ -3,79 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Developer For Hire</title>
+<title>Empire Tech Agency</title>
 
 <link rel="stylesheet" href="style.css">
-
-<!-- AOS ANIMATION -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
 
+<!-- NAV -->
+<nav class="nav">
+<h2>🌍 Empire Tech</h2>
+<a href="#contact" class="btn">Get Started</a>
+</nav>
+
 <!-- HERO -->
 <header class="hero">
-    <img src="me.jpg" class="profile-img">
+<h1>We Build Websites That Bring You Customers 💰</h1>
+<p>Grow your business online with a professional website</p>
 
-    <h1 data-aos="fade-up">I Build Websites That Bring Clients</h1>
-    <p data-aos="fade-up" data-aos-delay="200">Freelance Web Developer</p>
+<a href="#contact" class="btn">Start Project</a>
 
-    <a href="#contact" class="btn">Hire Me</a>
-
-    <a class="btn whatsapp"
-       href="https://wa.me/2349168144059?text=Hi%20I%20need%20a%20website"
-       target="_blank">
-       WhatsApp Me
-    </a>
+<a class="btn whatsapp"
+href="https://wa.me/2349168144059?text=Hello%20I%20need%20a%20website"
+target="_blank">
+Chat on WhatsApp
+</a>
 </header>
 
-<!-- SERVICES -->
-<section class="section" data-aos="fade-up">
-    <h2>Services</h2>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Basic</h3>
-            <p>₦10,000</p>
-        </div>
-
-        <div class="card">
-            <h3>Business</h3>
-            <p>₦25,000</p>
-        </div>
-
-        <div class="card">
-            <h3>Full System</h3>
-            <p>₦50,000+</p>
-        </div>
-    </div>
+<!-- URGENCY -->
+<section class="section">
+<h2>⚠️ Only 5 Client Slots Available This Week</h2>
 </section>
 
-<!-- ABOUT -->
-<section class="section" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>I help businesses grow online with modern websites and systems.</p>
+<!-- SERVICES -->
+<section class="section">
+<h2>Services</h2>
+
+<div class="grid">
+<div class="card">💻 Starter Website<br>$15</div>
+<div class="card">🏢 Business Website<br>$40</div>
+<div class="card">🚀 Full System<br>$80+</div>
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section">
+<h2>Our Work</h2>
+
+<div class="grid">
+<div class="card">Laundry Website</div>
+<div class="card">POS Dashboard</div>
+<div class="card">Portfolio Site</div>
+</div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="section">
+<h2>Get Free Website Tips 📩</h2>
+
+<form id="emailForm" class="form">
+<input type="email" id="subscriberEmail" placeholder="Enter your email" required>
+<button type="submit">Subscribe</button>
+</form>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section" data-aos="fade-up">
-    <h2>Hire Me</h2>
+<section id="contact" class="section">
+<h2>Start Your Project</h2>
 
-    <form id="contactForm" class="form">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Project Details" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+<form id="contactForm" class="form">
+<input type="text" id="name" placeholder="Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<textarea id="message" placeholder="Project details..." required></textarea>
+
+<button type="submit">Send Request 🚀</button>
+</form>
 </section>
 
+<!-- CHATBOT -->
+<div class="chatbot">
+<div class="chat-header">💬 Assistant</div>
+<div class="chat-body" id="chatBody"></div>
+<input type="text" id="chatInput" placeholder="Ask anything...">
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/2349168144059"
+class="floating-whatsapp">💬</a>
+
+<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
 
 <script src="script.js"></script>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
 
 </body>
 </html>
