@@ -11,7 +11,6 @@ appId: "1:258331631270:web:f4eeeb8ac1e3177bb21e67"
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
-// CONTACT FORM
 document.getElementById("contactForm").addEventListener("submit", function(e){
 e.preventDefault();
 
@@ -22,24 +21,10 @@ message: message.value,
 time: new Date().toLocaleString()
 });
 
-alert("Request sent 🚀");
+alert("Sent!");
 
-// AUTO WHATSAPP REDIRECT
-window.location.href = "https://wa.me/2349168144059?text=Hello%20I%20just%20submitted%20a%20form";
+window.location.href="https://wa.me/2349168144059";
 
-this.reset();
-});
-
-// EMAIL SUBSCRIBERS
-document.getElementById("emailForm").addEventListener("submit", function(e){
-e.preventDefault();
-
-db.ref("subscribers").push({
-email: subscriberEmail.value,
-time: new Date().toLocaleString()
-});
-
-alert("Subscribed 🎉");
 this.reset();
 });
 
@@ -48,18 +33,17 @@ const input = document.getElementById("chatInput");
 const body = document.getElementById("chatBody");
 
 input.addEventListener("keypress", function(e){
-if(e.key === "Enter"){
-let text = input.value.toLowerCase();
-body.innerHTML += `<p><b>You:</b> ${text}</p>`;
+if(e.key==="Enter"){
+let text=input.value;
+body.innerHTML+=`<p>You: ${text}</p>`;
 
-let reply="Chat us on WhatsApp.";
+let reply="Chat on WhatsApp.";
 
-if(text.includes("price")) reply="Starts from $15.";
-if(text.includes("time")) reply="2-5 days delivery.";
-if(text.includes("website")) reply="We build business & portfolio websites.";
+if(text.includes("price")) reply="$15 - $80+";
+if(text.includes("time")) reply="2-5 days";
 
 setTimeout(()=>{
-body.innerHTML += `<p><b>Bot:</b> ${reply}</p>`;
+body.innerHTML+=`<p>Bot: ${reply}</p>`;
 },500);
 
 input.value="";
