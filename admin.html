@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Dashboard</title>
+<title>Dashboard</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>📊 Client Dashboard</h1>
+<h1 style="text-align:center;">Client Dashboard</h1>
 
-<div id="messages"></div>
+<div class="grid" id="messages"></div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
 
 <script>
 const firebaseConfig = {
-  apiKey: "AIzaSyDLvK-Q4v1hZ2B-mtxZzNXs5m1tCS6LdGw",
-  authDomain: "neobank-app-3ebbe.firebaseapp.com",
-  projectId: "neobank-app-3ebbe",
-  storageBucket: "neobank-app-3ebbe.firebasestorage.app",
-  messagingSenderId: "258331631270",
-  appId: "1:258331631270:web:f4eeeb8ac1e3177bb21e67",
-  measurementId: "G-9VRK9ZZXYS"
+apiKey: "AIzaSyDLvK-Q4v1hZ2B-mtxZzNXs5m1tCS6LdGw",
+databaseURL: "https://neobank-app-3ebbe-default-rtdb.firebaseio.com"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+firebase.initializeApp(firebaseConfig);
 
-const box = document.getElementById("messages");
+firebase.database().ref("clients").on("value", snap=>{
+let box=document.getElementById("messages");
+box.innerHTML="";
 
-db.ref("clients").on("value", snapshot => {
-    box.innerHTML = "";
-
-    snapshot.forEach(child => {
-        const d = child.val();
-
-        box.innerHTML += `
-            <div class="card">
-                <h3>${d.name}</h3>
-                <p>${d.email}</p>
-                <p>${d.message}</p>
-            </div>
-        `;
-    });
+snap.forEach(data=>{
+let d=data.val();
+box.innerHTML+=`
+<div class="card">
+<h3>${d.name}</h3>
+<p>${d.email}</p>
+<p>${d.message}</p>
+<small>${d.time}</small>
+</div>`;
+});
 });
 </script>
 
