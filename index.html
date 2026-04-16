@@ -1,66 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EmpiraTech SaaS CRM</title>
+<title>Global Express Logistics</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<nav class="nav">
-<h2>EmpiraTech</h2>
-<a href="#contact" class="btn">Get Started</a>
-</nav>
+<!-- 🎥 VIDEO BACKGROUND -->
+<video autoplay muted loop id="bg-video">
+  <source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-shipping-containers-7572/1080p.mp4" type="video/mp4">
+</video>
 
-<header class="hero">
-<h1>Turn Your Business Into a Customer Machine 🚀</h1>
-<p>We build CRM systems & websites that help you get real clients</p>
+<!-- OVERLAY -->
+<div class="overlay"></div>
 
-<a href="#contact" class="btn">Start Free</a>
-<a href="https://wa.me/2349168144059" class="btn green">WhatsApp</a>
+<!-- NAVBAR -->
+<header>
+  <h1>🚚 Global Express</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Tracking</a>
+    <a href="#">Contact</a>
+  </nav>
 </header>
 
-<section class="section">
-<h2>What You Get</h2>
-
-<div class="grid">
-<div class="card">📊 Client Tracking System</div>
-<div class="card">⚡ Fast Dashboard</div>
-<div class="card">💬 Lead Management</div>
-</div>
+<!-- HERO -->
+<section class="hero">
+  <h2>World-Class Shipping & Logistics</h2>
+  <p>Fast • Secure • Reliable Global Delivery</p>
 </section>
 
-<section class="section">
-<h2>Pricing</h2>
+<!-- TRACKING -->
+<section class="track">
+  <h2>Track Your Shipment</h2>
 
-<div class="grid">
-<div class="card">Starter<br>$10</div>
-<div class="card">Pro CRM<br>$30</div>
-<div class="card">Business System<br>$80+</div>
-</div>
+  <input id="trackId" placeholder="Enter Tracking Number">
+  <button onclick="track()">Track</button>
+
+  <div id="result"></div>
 </section>
 
-<section id="contact" class="section">
-<h2>Request Access</h2>
+<!-- SERVICES -->
+<section class="services">
+  <div class="card">
+    <h3>Air Freight ✈️</h3>
+    <p>Fast international shipping by air.</p>
+  </div>
 
-<form id="leadForm">
-<input id="name" placeholder="Name" required>
-<input id="email" placeholder="Email" required>
-<textarea id="message" placeholder="What do you need?" required></textarea>
+  <div class="card">
+    <h3>Sea Cargo 🚢</h3>
+    <p>Large scale global shipping solutions.</p>
+  </div>
 
-<button type="submit">Send Request</button>
-</form>
+  <div class="card">
+    <h3>Express Delivery 🚚</h3>
+    <p>Door-to-door fast delivery service.</p>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-<p>© EmpiraTech SaaS</p>
+  <p>© 2026 Global Express Logistics</p>
 </footer>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
-<script src="app.js"></script>
-
+<script src="script.js"></script>
 </body>
 </html>
