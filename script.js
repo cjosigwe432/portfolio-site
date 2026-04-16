@@ -1,28 +1,25 @@
-const firebaseConfig = {
-apiKey: "AIzaSyDLvK-Q4v1hZ2B-mtxZzNXs5m1tCS6LdGw",
-authDomain: "neobank-app-3ebbe.firebaseapp.com",
-databaseURL: "https://neobank-app-3ebbe-default-rtdb.firebaseio.com",
-projectId: "neobank-app-3ebbe",
-storageBucket: "neobank-app-3ebbe.firebasestorage.app",
-messagingSenderId: "258331631270",
-appId: "1:258331631270:web:f4eeeb8ac1e3177bb21e67"
-};
+function track(){
+  let id = document.getElementById("trackId").value;
+  let result = document.getElementById("result");
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+  if(!id){
+    result.innerHTML = "Please enter tracking number";
+    return;
+  }
 
-document.getElementById("leadForm").addEventListener("submit", e=>{
-e.preventDefault();
+  let status = [
+    "Shipment picked up 📦",
+    "In transit ✈️",
+    "Arrived at sorting facility 🏢",
+    "Custom clearance done 🛃",
+    "Out for delivery 🚚",
+    "Delivered ✅"
+  ];
 
-db.ref("leads").push({
-name: name.value,
-email: email.value,
-message: message.value,
-status: "new",
-time: new Date().toLocaleString()
-});
+  let random = status[Math.floor(Math.random()*status.length)];
 
-alert("Request sent 🚀");
-
-window.location.href = "https://wa.me/2349168144059";
-});
+  result.innerHTML = `
+    <h3>Tracking ID: ${id}</h3>
+    <p>Status: ${random}</p>
+  `;
+}
